@@ -1,0 +1,19 @@
+This is a simple HTTP server that can handle several clients at once using
+multiple threads. These threads enable you to download several files
+concurrently with minimal performance loss.
+
+To run the server, just type "make." You have to close it with ctrl C
+when you're done.
+
+My implementation is pretty simple. I have a main function that executes
+automatically, and it sets up the server by binding to a random available
+port and listening for available connections. Whenever a new client makes
+contact with the server, its request is handled by a thread calling the
+"process" function after accepting. If the requested resource is in the www
+directory, a HTTP response is built, the access map is updated (with proper
+locking), the requested output is given, and the content is delivered. If
+it isn't, then a 404 is returned. Either way, the repsonse is sent and
+the client's connection is closed after, exiting the thread at the end
+of the function.
+
+For examples, please see my test scripts.

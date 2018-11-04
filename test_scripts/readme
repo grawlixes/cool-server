@@ -1,0 +1,11 @@
+These scripts are useful for testing the multithreading capabilities of my
+program. They only work if you move them up a directory, though, and test2.sh
+only tries to download files named "macbeth(number).txt" - I did it to test
+high-volume parallel downloads, and it worked well for me. I removed those
+files from the www directory because they were huge, but kept test2.sh to show
+some insight as to how I tested the program.
+
+Also, sometimes these scripts will hang. Probably something to do with the fact
+that everything happens in the background, but I'm not sure. Either way, they
+might be helpful to you if you want to try them out; what's important is that
+it's due to either the implementation of wget or my scripts, not the server.
